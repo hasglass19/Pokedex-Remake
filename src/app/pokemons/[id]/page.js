@@ -1,13 +1,10 @@
-import React from 'react'
-async function getMons() {
-    const res=await fetch('https://pokeapi.co/api/v2/pokemon')
-
-    const data=await res.json()
-    return data.results
+async function getMon(id) {
+    const res = await fetch('https://pokeapi.co/api/v2/pokemon/'+id);
+    return await res.json
 }
 
-export default async function PokemonList() {
-    const mons = await getMons()
+export default async function PokemonDetails(params) {
+    const mons = await getMon(35)
   return (
     <>{mons.map((mon)=>(
         <div key={mon.id}>
@@ -23,5 +20,5 @@ export default async function PokemonList() {
             </table>
         </div>
     ))}</>
-  )
+  );
 }
