@@ -2,21 +2,16 @@
     import Image from "next/image";
 
     async function getMon(id) {
-        const res = await fetch('https://pokeapi.co/api/v2/pokemon/'+id,{
-            next: {
-                revalidate: 60
-            }
-        });
+        const res = await fetch('https://pokeapi.co/api/v2/pokemon/'+id);
         return res.json();
     }
 
     export default async function PokemonDetails({ params }) {
         params = await params;
-        console.log("PARAMS: ", params);
         const mons = await getMon(params.id);
     return (
         <>{
-                <table>
+                <table> 
                     <tbody>
                     <tr>
                         <th>Index: </th>
