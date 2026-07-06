@@ -13,6 +13,11 @@
   justify-content: center;
   font-family: var(--font-geist-sans);
   background-color: var(--background);
+  margin: auto;
+  text-align: center;
+  display: flex;
+  
+  align-items: center;  
 }
 
 .main {
@@ -20,6 +25,8 @@
   align-items: flex-start;
   background-color: var(--foreground);
   padding: 60px 60px;
+  
+  
 }
 
 .intro {

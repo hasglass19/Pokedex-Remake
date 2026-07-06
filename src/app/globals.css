@@ -56,11 +56,25 @@ table.front-page{
   position: relative;
   display: inline-block;
   padding: 1%;
-  width: 300;
-  border: 1 #ededed;
+  width: 400;
+  height: 300;
+  border-width: 1px;
+  border-style: solid;
 }
 
 button{
   width: 100px;
   height: 50px;
+  align-self: center;
+  float: left;
+
+  position: relative;
+}
+
+footer{
+  margin: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
