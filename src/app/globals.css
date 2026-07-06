@@ -51,3 +51,7 @@ a {
 th, td{
   padding: 10px;
 }
+
+table{
+  position:relative;
+}

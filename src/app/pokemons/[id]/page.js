@@ -1,24 +1,26 @@
 async function getMon(id) {
     const res = await fetch('https://pokeapi.co/api/v2/pokemon/'+id);
-    return await res.json
+    return await res.json();
 }
 
 export default async function PokemonDetails(params) {
-    const mons = await getMon(35)
+    const mons = await getMon(params)
   return (
-    <>{mons.map((mon)=>(
-        <div key={mon.id}>
+    <>{
+        <div key={mons.id}>
             <table>
+                <tbody>
                 <tr>
                     <th>Index: </th>
                     <th>Name: </th>
                 </tr>
                 <tr>
-                    <td>{mon.id}</td>
-                    <td>{mon.name}</td>
+                    <td>{mons}</td>
+                    <td>{mons}</td>
                 </tr>
+                </tbody>    
             </table>
         </div>
-    ))}</>
+    }</>
   );
 }

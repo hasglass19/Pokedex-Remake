@@ -3,9 +3,16 @@ import styles from "./page.module.css";
 async function getMons() {
     const res=await fetch('https://pokeapi.co/api/v2/pokemon')
 
-    const data=await res.json()
-    return data.results
+    const data=await res.json();
+    return data.results;
 }
+
+function tableRow (idurl){
+  idurl=parseInt(idurl);
+  if (idurl%1==0)
+    return(<div></div>);
+}
+
 
 export default async function Home() {
   const mons = await getMons()
@@ -13,18 +20,18 @@ export default async function Home() {
     <div className={styles.page}>
       <main className={styles.main}>
           <h1>Welcome to the Pokedex</h1>
-          <table>{mons.map((mon)=>(
+          {mons.map((mon)=>(<table>
             <tbody>
               <tr>
                 <th>Index Number: </th>
                 <th>Name: </th>
               </tr>
               <tr>
-                <td>{mon.id}</td>
-                <td>{mon.name}</td>
+                <td>{mon.url.substring(34,mon.url.length-1)}</td>
+                <td>{mon.name.charAt(0).toUpperCase() + mon.name.slice(1)}</td>
               </tr>
-            </tbody>))}
-          </table>
+            </tbody>
+          </table>))}
       </main>
     </div>
   );
