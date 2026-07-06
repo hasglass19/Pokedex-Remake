@@ -25,9 +25,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>
+      <body className="welcome">
         <Link href={"/"}>
-          <Image src="pokemonlogo.svg" width={139} height={50} alt="Pokemon logo"/>
+          <Image src="pokemonlogo.svg" width={195} height={70} alt="Pokemon logo"/>
         </Link>
         {children}
       </body>

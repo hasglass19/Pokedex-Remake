@@ -1,7 +1,5 @@
 .page {
-  --background: #fafafa;
   --foreground: #fff;
-
   --text-primary: #000;
   --text-secondary: #666;
 
@@ -12,26 +10,19 @@
   align-items: center;
   justify-content: center;
   font-family: var(--font-geist-sans);
-  background-color: var(--background);
-  margin: auto;
-  text-align: center;
-  display: flex;
   
-  align-items: center;  
 }
 
 .main {
   width: 100%;
-  align-items: flex-start;
-  background-color: var(--foreground);
+  align-items: center;
   padding: 60px 60px;
-  
-  
+  margin: auto;
 }
 
 .intro {
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  text-align: center;
   gap: 24px;
 }
 
@@ -80,7 +71,7 @@
 
 a.primary {
   background: var(--text-primary);
-  color: var(--background);
+  
   gap: 8px;
 }
 
@@ -123,7 +114,6 @@ a.secondary {
   }
 
   .page {
-    --background: #000;
     --foreground: #000;
 
     --text-primary: #ededed;

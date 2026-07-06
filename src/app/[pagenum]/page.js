@@ -21,9 +21,9 @@ export default async function Pages({ params }) {
   params=await params;
   const mons = await getMons(params.pagenum);
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} centering`}>
       <main className={styles.main}>
-          <h1>Welcome to the Pokedex</h1>
+          <h1 className="welcome-page">Welcome to the Pokedex</h1>
           {mons.map((mon)=>(
           <Link href={'/pokemons/'+(mon.url.substring(34))} key={(mons.indexOf(mon)+1+(20*(params.pagenum-1)))}>
             <table className="front-page" key={mons.indexOf(mon)+1}>
