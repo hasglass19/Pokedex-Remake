@@ -5,6 +5,13 @@ async function getMon(id) {
     return res.json();
 }
 
+/*function TypeCell(){
+    if(mons.types.at(1))
+        return(<td>{mons.types.at(0).type.name.charAt(0).toUpperCase() + mons.types.at(0).type.name.slice(1)}<br/><br/>{mons.types.at(1).type.name.charAt(0).toUpperCase() + mons.types.at(1).type.name.slice(1)}</td>);
+    else
+        return(<td>{mons.types.at(0).type.name.charAt(0).toUpperCase() + mons.types.at(0).type.name.slice(1)}</td>);
+}*/
+
 export default async function PokemonDetails({ params }) {
     params = await params;
     const mons = await getMon(params.id);
