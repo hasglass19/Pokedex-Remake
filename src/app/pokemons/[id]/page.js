@@ -36,6 +36,12 @@ export default async function PokemonDetails({ params }) {
     if (params.id<1 || (params.id>1025 && params.id<10001) || params.id>10326 || !(parseInt(params.id)))
         return(<NotFound/>)
     const mons = await getMon(params.id);
+    var inches=Math.round(((mons.height/3.048)-Math.floor(mons.height/3.048))*12);
+    var carry_over=0;
+    if (inches==12){
+        inches=0;
+        carry_over=1;
+    }
     return (
         <>
             <table className="pokepages centering"> 
@@ -44,13 +50,16 @@ export default async function PokemonDetails({ params }) {
                         <th>Index: </th>
                         <th>Name: </th>
                         <th>Types:</th>
+                        <th>Height:</th>
+                        <th>Weight:</th>
                     </tr>
                     <tr>
                         <td>{mons.id}</td>
                         <td>{mons.name.charAt(0).toUpperCase() + mons.name.slice(1)}</td>
                         <TypeCell mons={mons}/>
-                        
-                        <td><Image src={mons.sprites.front_default} width={200} height={200} alt="Default Sprite"/></td>
+                        <td>{mons.height/10} meters<br/>{Math.floor(mons.height/3.048)+carry_over} feet {inches} inches</td>
+                        <td>{mons.weight/10} kilograms<br/>{(mons.weight/4.535922921).toFixed(1)} pounds</td>
+                        <td rowSpan={2}><Image src={mons.sprites.front_default} width={200} height={200} alt="Default Sprite"/></td>
                     </tr>
                 </tbody>    
             </table>
