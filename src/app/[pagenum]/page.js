@@ -17,6 +17,14 @@ function PrevButton({pagenum}){
     return(<Link href={"/"+(parseInt(pagenum)-1)}><button>Previous Page</button></Link>);
 }
 
+function IndexNum({mons,mon,params}){
+  var id = mons.indexOf(mon)+1+(20*(params.pagenum-1))
+  if (id<=1025)
+    return(<td>{id}</td>);
+  else
+    return(<td>{id+8975}</td>)
+}
+
 export default async function Pages({ params }) {
   params=await params;
   const mons = await getMons(params.pagenum);
@@ -33,7 +41,7 @@ export default async function Pages({ params }) {
                 <th>Name: </th>
               </tr>
               <tr>
-                <td>{mons.indexOf(mon)+1+(20*(params.pagenum-1))}</td>
+                <IndexNum mons={mons} mon={mon} params={params}/>
                 <td>{mon.name.charAt(0).toUpperCase() + mon.name.slice(1)}</td>
                 <td><Image src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+mon.url.slice(34,-1)+".png"} width={150} height={150} alt="Default Sprite"/></td>
               </tr>

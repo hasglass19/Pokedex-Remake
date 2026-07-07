@@ -6,7 +6,7 @@ export default function Home(){
         <main className={styles.main}>
             <h1 className="welcome-page">Welcome to the Pokedex</h1>
             
-            <Link href={"/1"}><button>Enter</button></Link>
+            <Link href={"/1"}><button className="centering">Enter</button></Link>
         </main>
     </div>);
 }
