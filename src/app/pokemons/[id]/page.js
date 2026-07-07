@@ -1,3 +1,4 @@
+import NotFound from "@/app/not-found";
 import Image from "next/image";
 import Link from "next/link";
 async function getMon(id) {
@@ -15,6 +16,8 @@ function TypeCell({mons}){
 function PrevButton({mons}){
     if (mons.id==1)
         return(<Link href={"/pokemons/10326"}><button>Previous Pokemon</button></Link>);
+    else if(mons.id==10001)
+        return(<Link href={"/pokemons/1025"}><button>Previous Pokemon</button></Link>);
     else
         return(<Link href={"/pokemons/"+(mons.id-1)}><button>Previous Pokemon</button></Link>);
 }
@@ -22,12 +25,16 @@ function PrevButton({mons}){
 function NextButton({mons}){
     if (mons.id==10326)
         return(<Link href={"/pokemons/1"}><button>Next Pokemon</button></Link>);
+    else if (mons.id==1025)
+        return(<Link href={"/pokemons/10001"}><button>Next Pokemon</button></Link>);
     else
         return(<Link href={"/pokemons/"+(mons.id+1)}><button>Next Pokemon</button></Link>);
 }
 
 export default async function PokemonDetails({ params }) {
     params = await params;
+    if (params.id<1 || (params.id>1025 && params.id<10001) || params.id>10326 || !(parseInt(params.id)))
+        return(<NotFound/>)
     const mons = await getMon(params.id);
     return (
         <>
