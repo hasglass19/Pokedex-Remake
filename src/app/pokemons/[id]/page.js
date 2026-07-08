@@ -31,6 +31,18 @@ function NextButton({mons}){
         return(<Link href={"/pokemons/"+(mons.id+1)}><button>Next Pokemon</button></Link>);
 }
 
+function AbilityCell({mons}){
+    return(
+        <td>
+            {mons.at(0).ability.name.charAt(0).toUpperCase()+mons.at(0).ability.name.slice(1)}
+            <br/><br/>
+            {mons.at(1)? mons.at(1).ability.name.charAt(0).toUpperCase()+mons.at(1).ability.name.slice(1):""}
+            <br/><br/>
+            {mons.at(2)? mons.at(2).ability.name.charAt(0).toUpperCase()+mons.at(2).ability.name.slice(1):""}
+        </td>
+    );
+}
+
 export default async function PokemonDetails({ params }) {
     params = await params;
     if (params.id<1 || (params.id>1025 && params.id<10001) || params.id>10326 || !(parseInt(params.id)))
@@ -50,8 +62,10 @@ export default async function PokemonDetails({ params }) {
                         <th>Index: </th>
                         <th>Name: </th>
                         <th>Types:</th>
-                        <th>Height:</th>
-                        <th>Weight:</th>
+                        <th>Height: </th>
+                        <th>Weight: </th>
+                        <th>Abilities: </th>
+                        <th rowSpan="2"><Image src={mons.sprites.front_default} width={200} height={200} alt="Default Sprite"/></th>
                     </tr>
                     <tr>
                         <td>{mons.id}</td>
@@ -59,7 +73,7 @@ export default async function PokemonDetails({ params }) {
                         <TypeCell mons={mons}/>
                         <td>{mons.height/10} meters<br/><br/>{Math.floor(mons.height/3.048)+carry_over} feet {inches} inches</td>
                         <td>{mons.weight/10} kilograms<br/><br/>{(mons.weight/4.535922921).toFixed(1)} pounds</td>
-                        <td rowSpan={2}><Image src={mons.sprites.front_default} width={200} height={200} alt="Default Sprite"/></td>
+                        <AbilityCell mons={mons.abilities}/>
                     </tr>
                 </tbody>    
             </table>
