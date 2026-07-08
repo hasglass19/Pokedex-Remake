@@ -34,11 +34,11 @@ function NextButton({mons}){
 function AbilityCell({mons}){
     return(
         <td>
-            {mons.at(0).ability.name.charAt(0).toUpperCase()+mons.at(0).ability.name.slice(1)}
+            {(mons.at(0).ability.name.charAt(0).toUpperCase()+mons.at(0).ability.name.slice(1)).replaceAll("-"," ")}
             <br/><br/>
-            {mons.at(1)? mons.at(1).ability.name.charAt(0).toUpperCase()+mons.at(1).ability.name.slice(1):""}
+            {mons.at(1)? mons.at(1).ability.name.charAt(0).toUpperCase()+mons.at(1).ability.name.slice(1).replaceAll("-"," "):""}
             <br/><br/>
-            {mons.at(2)? mons.at(2).ability.name.charAt(0).toUpperCase()+mons.at(2).ability.name.slice(1):""}
+            {mons.at(2)? mons.at(2).ability.name.charAt(0).toUpperCase()+mons.at(2).ability.name.slice(1).replaceAll("-"," "):""}
         </td>
     );
 }
