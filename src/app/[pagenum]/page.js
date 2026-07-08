@@ -36,7 +36,7 @@ export default async function Pages({ params }) {
             <h1 className="welcome-page">Welcome to the Pokedex</h1>
             {mons.map((mon)=>(
             <Link href={'/pokemons/'+(mon.url.substring(34))} key={(mons.indexOf(mon)+1+(20*(params.pagenum-1)))}>
-              <table className="front-page" key={mons.indexOf(mon)+1}>
+              <table className="front-page centering  " key={mons.indexOf(mon)+1}>
               <tbody>
                 <tr>
                   <th>Index Number: </th>
