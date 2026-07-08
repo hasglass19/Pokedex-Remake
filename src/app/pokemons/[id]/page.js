@@ -57,8 +57,8 @@ export default async function PokemonDetails({ params }) {
                         <td>{mons.id}</td>
                         <td>{mons.name.charAt(0).toUpperCase() + mons.name.slice(1)}</td>
                         <TypeCell mons={mons}/>
-                        <td>{mons.height/10} meters<br/>{Math.floor(mons.height/3.048)+carry_over} feet {inches} inches</td>
-                        <td>{mons.weight/10} kilograms<br/>{(mons.weight/4.535922921).toFixed(1)} pounds</td>
+                        <td>{mons.height/10} meters<br/><br/>{Math.floor(mons.height/3.048)+carry_over} feet {inches} inches</td>
+                        <td>{mons.weight/10} kilograms<br/><br/>{(mons.weight/4.535922921).toFixed(1)} pounds</td>
                         <td rowSpan={2}><Image src={mons.sprites.front_default} width={200} height={200} alt="Default Sprite"/></td>
                     </tr>
                 </tbody>    
