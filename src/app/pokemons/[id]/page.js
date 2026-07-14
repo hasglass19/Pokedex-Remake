@@ -59,21 +59,39 @@ export default async function PokemonDetails({ params }) {
             <table className="pokepages centering"> 
                 <tbody>
                     <tr>
-                        <th>Index: </th>
-                        <th>Name: </th>
-                        <th>Types:</th>
-                        <th>Height: </th>
-                        <th>Weight: </th>
-                        <th>Abilities: </th>
-                        <th rowSpan="2"><Image src={mons.sprites.front_default} width={200} height={200} alt="Default Sprite"/></th>
+                        <td colSpan={7}>
+                            <Image className="centering pokepages" src="/KPokedexTop.png" width={100} height={100} alt="Pokedex Top"/>
+                        </td>
                     </tr>
                     <tr>
+                        <th>Index: </th>
                         <td>{mons.id}</td>
+                        <th rowSpan="6"><Image src={mons.sprites.front_default} width={200} height={200} alt="Default Sprite"/></th>
+                    </tr>
+                    <tr>
+                        <th>Name: </th>
                         <td>{mons.name.charAt(0).toUpperCase() + mons.name.slice(1)}</td>
+                    </tr>
+                    <tr>
+                        <th>Types:</th>
                         <TypeCell mons={mons}/>
+                    </tr>
+                    <tr>
+                        <th>Height: </th>
                         <td>{mons.height/10} meters<br/><br/>{Math.floor(mons.height/3.048)+carry_over} feet {inches} inches</td>
+                    </tr>
+                    <tr>
+                        <th>Weight: </th>
                         <td>{mons.weight/10} kilograms<br/><br/>{(mons.weight/4.535922921).toFixed(1)} pounds</td>
+                    </tr>
+                    <tr>
+                        <th>Abilities: </th>
                         <AbilityCell mons={mons.abilities}/>
+                    </tr>
+                    <tr>
+                        <td colSpan={7}>
+                        <Image className="centering pokepages" src="/KPokedexBottom.png" width={100} height={100} alt="Pokedex Bottom"/>
+                        </td>
                     </tr>
                 </tbody>    
             </table>
