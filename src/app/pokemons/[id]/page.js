@@ -59,9 +59,9 @@ export default async function PokemonDetails({ params }) {
             <table className="pokepages centering"> 
                 <tbody>
                     <tr>
-                        <td colSpan={7}>
+                        <th colSpan={7}>
                             <Image className="centering pokepages" src="/KPokedexTop.png" width={100} height={100} alt="Pokedex Top"/>
-                        </td>
+                        </th>
                     </tr>
                     <tr>
                         <th>Index: </th>
@@ -89,9 +89,9 @@ export default async function PokemonDetails({ params }) {
                         <AbilityCell mons={mons.abilities}/>
                     </tr>
                     <tr>
-                        <td colSpan={7}>
+                        <th colSpan={7}>
                         <Image className="centering pokepages" src="/KPokedexBottom.png" width={100} height={100} alt="Pokedex Bottom"/>
-                        </td>
+                        </th>
                     </tr>
                 </tbody>    
             </table>
