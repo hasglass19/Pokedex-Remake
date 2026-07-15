@@ -29,12 +29,13 @@ function IndexNum({mons,mon,params}){
 export default async function Pages({ params }) {
   params=await params;
   const mons = await getMons(params.pagenum);
+  if(!params.pagenum)
+    params.pagenum=1;
   if(params.pagenum<=68 && params.pagenum>=1)
     return (
       <div className={`${styles.page} centering`}>
         <main className={styles.main}>
-            <h1 className="welcome-page">Welcome to the Pokedex</h1>
-            {mons.map((mon)=>(
+             {mons.map((mon)=>(
             <Link href={'/pokemons/'+(mon.url.substring(34))} key={(mons.indexOf(mon)+1+(20*(params.pagenum-1)))}>
               <table className="front-page centering  " key={mons.indexOf(mon)+1}>
               <tbody>

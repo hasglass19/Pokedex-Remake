@@ -26,9 +26,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="welcome">
-        <Link href={"/"}>
+        <Link href={"/1"}>
           <Image src="/pokemonlogo.svg" width={195} height={70} alt="Pokemon logo"/>
         </Link>
+        <Link className="exit" href={"/"}>Exit the Pokedex</Link>
         {children}
       </body>
     </html>

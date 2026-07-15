@@ -101,3 +101,24 @@ img.pokepages{
   height: auto;
   aspect-ratio: 597/257;
 }
+
+td{
+  padding-top: 20;
+  padding-bottom: 20;
+}
+
+.exit{
+  float: right;
+  display: flex;
+  
+  color: black;
+  font-size: xx-large;
+  font-weight: bolder;
+  background-color: #89cfdb;
+  top: 10px;
+  right: 10px;
+  margin: auto;
+  position: fixed;
+  
+}
+
